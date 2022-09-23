@@ -1,0 +1,12 @@
+<div class="recommendation">
+  <div class="poster-area">
+    <img
+      src="{{ recommendation.imageUrl }}"
+      alt="{{ recommendation.title }}"
+      class="poster"
+    />
+    <span class="badge" [ngStyle]="{'background-color': badgeColor()}">{{ recommendation.kind }}</span>
+  </div>
+  <h4>{{ recommendation.title }}</h4>
+  <p>{{recommendation.description}}</p>
+</div>

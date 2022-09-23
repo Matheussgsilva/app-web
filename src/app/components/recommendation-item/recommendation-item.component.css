@@ -1,0 +1,27 @@
+.recommendation {
+  border: solid 1px #ccc;
+  margin-bottom: 1em;
+  border-radius: 8px;
+  width: 200px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.poster-area {
+  position: relative;
+}
+
+.poster-area img {
+  width: 200px;
+  height: 300px;
+}
+
+.badge {
+  font-weight: bold;
+  color: #FFF;
+  padding: 8px;  
+  border-radius: 0 0 5px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
