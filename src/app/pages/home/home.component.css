@@ -1,0 +1,12 @@
+h1 {
+  font-size: 2rem;
+  margin: 20px 10px;
+}
+
+.recommendation-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  row-gap: 20px;
+  margin-top: 20px;
+}
