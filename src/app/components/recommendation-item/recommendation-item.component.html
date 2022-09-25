@@ -5,8 +5,10 @@
       alt="{{ recommendation.title }}"
       class="poster"
     />
-    <span class="badge" [ngStyle]="{'background-color': badgeColor()}">{{ recommendation.kind }}</span>
+    <span class="badge" [ngStyle]="{ 'background-color': badgeColor() }">{{
+      recommendation.kind
+    }}</span>
   </div>
-  <h4>{{ recommendation.title }}</h4>
-  <p>{{recommendation.description}}</p>
+  <h4 class="title">{{ recommendation.title }}</h4>
+  <p class="description">{{ recommendation.description }}</p>
 </div>
