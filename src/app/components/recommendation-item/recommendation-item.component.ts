@@ -9,7 +9,7 @@ import { RecommendationModel } from '../../models/recommendation.model';
 export class RecommendationItemComponent {
   @Input() recommendation!: RecommendationModel;
 
-  badgeColor(): string {
+  public badgeColor(): string {
     switch (this.recommendation.kind) {
       case 'Filme':
           return "#1BC6B4";
