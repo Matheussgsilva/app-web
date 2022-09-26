@@ -9,5 +9,5 @@ import { RecommendationModel } from '../../models/recommendation.model';
   styleUrls: ['./book.component.css'],
 })
 export class BookComponent {
-  public recommendations: RecommendationModel[] = dataset.filter(item => item.kind === 'Livro');
+  public bookRecommendations: RecommendationModel[] = dataset.filter(item => item.kind === 'Livro');
 }

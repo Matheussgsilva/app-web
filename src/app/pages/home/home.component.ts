@@ -9,5 +9,5 @@ import { dataset } from '../../data/recommendations';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  public recommendations: RecommendationModel[] = dataset;
+  public homeRecommendations: RecommendationModel[] = dataset;
 }
