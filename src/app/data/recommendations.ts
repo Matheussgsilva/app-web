@@ -50,48 +50,69 @@ export const dataset = [
   },
   {
     id: 8,
+    title: 'Doom',
+    kind: 'Jogo',
+    description: 'Doom é notável pelo arsenal disponível, que se tornou uma espécie de protótipo para os jogos de tiro em primeira pessoa. ',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/pt/thumb/5/57/Doom_cover_art.jpg/200px-Doom_cover_art.jpg'
+  },
+  {
+    id: 9,
     title: 'O tatuador de Auschwitz',
     kind: 'Livro',
     description: 'A incrível história, baseada em fatos, de um amor que os cruéis muros de Auschwitz não foram capazes de impedir.',
     imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/51FarkH03kL._SX340_BO1,204,203,200_.jpg'
   },
   {
-    id: 9,
+    id: 10,
+    title: 'The Boys',
+    kind: 'Série',
+    description: 'Na trama, conhecemos um mundo em que super-heróis são as maiores celebridades do planeta, e rotineiramente abusam dos seus poderes ao invés de os usarem para o bem.',
+    imageUrl: 'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/stTEycfG9928HYGEISBFaG1ngjM.jpg'
+  },
+  {
+    id: 11,
     title: 'A revolução dos bichos',
     kind: 'Livro',
     description: 'A revolução dos bichos é uma fábula sobre o poder. Narra a insurreição dos animais de uma granja contra seus donos. ',
     imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/61owA5ey3iL._SX324_BO1,204,203,200_.jpg'
   },
   {
-    id: 10,
+    id: 12,
     title: 'Sapiens: Uma breve história da humanidade',
     kind: 'Livro',
     description: 'Sapiens é a obra-prima de Yuval Noah Harari e o consagrou como um dos pensadores mais brilhantes da atualidade. ',
     imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/41FU42ESk5L._SX346_BO1,204,203,200_.jpg'
   },
   {
-    id: 11,
+    id: 13,
+    title: 'Deadpool',
+    kind: 'Filme',
+    description: 'Baseado no anti-herói não convencional da Marvel Comics, Deadpool conta a história da origem do ex-agente das Forças Especiais que se tornou o mercenário Wade Wilson.',
+    imageUrl: 'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/zq8Cl3PNIDGU3iWNRoc5nEZ6pCe.jpg'
+  },
+  {
+    id: 14,
     title: 'Admirável mundo novo',
     kind: 'Livro',
     description: 'Em uma sociedade organizada segundo princípios estritamente científicos, Bernard Marx, um psicólogo, sente-se inadequado quando se compara aos outros seres de sua casta.',
     imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/41IKTYiymKL._SX334_BO1,204,203,200_.jpg'
   },
   {
-    id: 12,
+    id: 15,
     title: 'Clube da Luta',
     kind: 'Filme',
     description: 'Um homem deprimido que sofre de insônia conhece um estranho vendedor de sabonetes chamado Tyler Durden. Eles formam um clube clandestino com regras rígidas onde lutam com outros homens cansados de suas vidas mundanas. ',
     imageUrl: 'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/r3pPehX4ik8NLYPpbDRAh0YRtMb.jpg'
   },
   {
-    id: 13,
+    id: 16,
     title: 'UNCHARTED 4',
     kind: 'Jogo',
     description: 'UNCHARTED 4 End leva os jogadores numa jornada pelo planeta, cruzando ilhas selvagens, cidades remotas e picos cobertos de neve, tudo em busca do tesouro de Avery.',
     imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/91grctgwzFL.jpg'
   },
   {
-    id: 14,
+    id: 17,
     title: 'Crash Bandicoot',
     kind: 'Jogo',
     description: 'Só você pode ajudar Crash a salvar os animais e a namorada dele e acabar com os planos do Dr. Cortex.',
