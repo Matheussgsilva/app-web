@@ -1,0 +1,7 @@
+<a [routerLink]="['']">Voltar</a>
+
+<strong class="d-block" *ngIf="loading">Carregando...</strong>
+
+<div *ngIf="!loading">
+  <h1>{{recommendation.title}}</h1>
+</div>
