@@ -9,31 +9,3 @@ body {
   background-color: #121212;
   color: #E1E1E1;
 }
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid #D1D1D1;
-}
-
-.navigation h1 {
-  font-size: 2rem;
-}
-
-.kind-select {
-  display: flex;
-  list-style: none;
-}
-
-.kind-select li {
-  font-size: 1rem;
-  margin-left: 15px;
-  cursor: pointer;
-  transition: 400ms ease-in-out;
-}
-
-.kind-select li:hover {
-  color: #BB86FC;
-}
