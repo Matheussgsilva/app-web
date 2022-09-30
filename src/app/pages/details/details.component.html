@@ -1,7 +1,36 @@
 <a [routerLink]="['']">Voltar</a>
 
 <strong class="d-block" *ngIf="loading">Carregando...</strong>
-
-<div *ngIf="!loading">
-  <h1>{{recommendation.title}}</h1>
+<div *ngIf="!loading && recommendation">
+  <div
+    style="background-image: url({{recommendation.imageUrl}}); background-repeat: no-repeat; background-size: cover; background-position: center center; height: 400px"
+  >
+    <div class="wrapper bg-dark h-100 p-4" style="--bs-bg-opacity: .95;">
+      <h1 class="my-3">{{ recommendation.title }}</h1>
+      <div class="row">
+        <div class="col-3">
+          <img
+            src="{{ recommendation.imageUrl }}"
+            alt="{{ recommendation.title }}"
+            class="card-img-top square rounded"
+            style="height: 250px; width: 180px"
+          />
+        </div>
+        <div class="col-7">
+          <div class="badge rounded text-bg-primary mb-3">
+            {{ recommendation.kind }}
+          </div>
+          <p class="card-text">{{ recommendation.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper mt-3" *ngIf="similarRecommendation">
+    <h3>Recomendações similares</h3>
+    <div class="row">
+      <div class="col-3" *ngFor="let item of similarRecommendation">
+        <app-recommendation-item [recommendation]='item'></app-recommendation-item>
+      </div>
+    </div>
+  </div>
 </div>

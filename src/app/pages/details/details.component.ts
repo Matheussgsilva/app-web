@@ -13,15 +13,14 @@ export class DetailsComponent implements OnInit {
 
   public id: number = this.route.snapshot.params.id;
   public loading: boolean = true;
-  public recommendation!: RecommendationModel;
-
+  public recommendation?: RecommendationModel;
+  public similarRecommendation?: RecommendationModel[];
+  
   public ngOnInit(): void {
     setTimeout(() => {
-      this.recommendation = dataset.filter((item) => {
-        return item.id == this.id;
-      })[0];
-
+      this.recommendation = dataset.find((item) => item.id == this.id);
       this.loading = false;
+      console.log(this.recommendation.id)
     }, 500);
   }
 }
