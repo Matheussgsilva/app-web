@@ -20,7 +20,7 @@ export class DetailsComponent implements OnInit {
     setTimeout(() => {
       this.recommendation = dataset.find((item) => item.id == this.id);
       this.loading = false;
-      console.log(this.recommendation.id)
+      console.log(this.recommendation)
     }, 500);
   }
 }
