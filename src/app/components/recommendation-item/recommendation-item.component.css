@@ -1,41 +1,8 @@
-.recommendation {
-  border: solid 1px #ccc;
-  margin-bottom: 1em;
-  border-radius: 8px;
-  width: 200px;
-  height: 400px;
-  overflow: hidden;
-  background-color: #1D1D1D;
-}
-
-.poster-area {
-  position: relative;
-}
-
-.poster-area img {
-  width: 200px;
-  height: 240px;
-}
-
 .badge {
   font-weight: bold;
   color: #FFF;
-  padding: 8px;  
-  border-radius: 0 0 5px 0;
+  padding: 10px;
   position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.title {
-  font-size: 1rem;
-  text-align: center;
-  margin: 5px;
-}
-
-.description {
-  font-size: 0.8rem;
-  text-align: center;
-  color: #CCC;
-  margin: 0 5px;
+  top: 5px;
+  left: 5px;
 }

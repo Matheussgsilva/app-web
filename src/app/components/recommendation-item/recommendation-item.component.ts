@@ -12,15 +12,15 @@ export class RecommendationItemComponent {
   public badgeColor(): string {
     switch (this.recommendation.kind) {
       case 'Filme':
-          return "#1BC6B4";
+          return "primary";
       case 'Série':
-          return "#BB86FC";
+          return "danger";
       case 'Jogo':
-          return "#98D936";
+          return "success";
       case 'Livro':
-          return "#F2CA52";
+          return "warning";
       default:
-          return "#A68D60"
+          return "info"
       }
     }
 }
