@@ -15,4 +15,8 @@ export class LayoutComponent {
     this.authService.logout()
   }
 
+  public register(): void {
+    
+  }
+
 }

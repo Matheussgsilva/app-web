@@ -1,7 +1,4 @@
-<h1>Recomendações</h1>
-<hr>
-
-<div class="btn-group w-100 mb-4" role="group">
+<div class="btn-group w-100 my-4" role="group">
   <button (click)="filter('all')" class="btn btn-primary" [class.active]="currentKind == 'all'">Todos</button>
   <button (click)="filter(kind)" class="btn btn-primary" [class.active]="currentKind == kind"
     *ngFor="let kind of kinds">{{kind}}</button>
