@@ -9,6 +9,7 @@ export class LoginComponent {
   constructor(private authService: AuthService){}
 
   public email: string = '';
+  public name: string = '';
 
   public login(): void {
     this.authService.login(this.email)
