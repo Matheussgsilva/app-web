@@ -12,7 +12,7 @@ export class LoginComponent {
   public name: string = '';
 
   public login(): void {
-    this.authService.login(this.email)
+    this.authService.login(this.email,this.name)
   }
 
 }

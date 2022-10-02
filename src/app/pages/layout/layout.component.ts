@@ -11,8 +11,14 @@ export class LayoutComponent {
 
   constructor(private authService: AuthService){}
 
+  public name: string = '';
+
   public logout(): void {
     this.authService.logout()
+  }
+
+  public getName(): string {
+    return this.name = this.authService.currentUserName;
   }
 
   public register(): void {

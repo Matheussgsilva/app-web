@@ -16,8 +16,13 @@ export class AuthService {
     return localStorage.email;
   }
 
-  public login(email: string): void {
+  public get currentUserName(): string {
+    return localStorage.name;
+  }
+
+  public login(email: string, name: string): void {
     localStorage.setItem('email', email)
+    localStorage.setItem('name', name)
     this.router.navigateByUrl('')
   }
 
