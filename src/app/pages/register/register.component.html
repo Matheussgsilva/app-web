@@ -1,1 +1,24 @@
-<h1>Register</h1>
+<div class="wrapper">
+  <h1>Preencha o formulário com a sua recomendação</h1>
+  <form>
+    <div class="form-group">
+      <label for="kindSelect">Escolha o tipo de recomendação</label>
+      <select class="form-control" id="kindSelect">
+        <option value="">Escolha uma opção</option>
+        <option *ngFor="let kind of kinds">{{ kind }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="recommendation-title">Título da recomendação</label>
+      <input type="text" class="form-control" id="recommendation-title" placeholder="Digite o título"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="recommendation-description">Descrição da recomendação</label>
+      <textarea type="text" class="form-control" id="recommendation-description" placeholder="Digite a descrição"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="recommendation-image-url">Url da imagem da recomendação</label>
+      <input type="text" class="form-control" id="recommendation-image-url" placeholder="Digite a url"/>
+    </div>
+  </form>
+</div>
