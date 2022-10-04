@@ -1,23 +1,23 @@
 <div class="wrapper">
   <h1 class="mt-4">Preencha o formulário com a sua recomendação</h1>
-  <form>
+  <form [formGoup]="form">
     <div class="form-group mt-3 ">
       <label class="form-label" for="recommendation-kind">Escolha o tipo de recomendação</label>
-      <select class="form-control text-secondary" id="recommendation-kind" [(ngModel)]="kind">
+      <select class="form-control text-secondary" id="recommendation-kind" formControlName="category">
         <option value="">Escolha uma opção</option>
         <option *ngFor="let kind of kinds">{{ kind }}</option>
       </select>
     </div>
     <div class="form-group mt-3">
-      <label class="form-label" for="recommendation-title" [(ngModel)]="title">Título da recomendação</label>
+      <label class="form-label" for="recommendation-title" formControlName="name">Título da recomendação</label>
       <input type="text" class="form-control" id="recommendation-title" placeholder="Digite o título"/>
     </div>
     <div class="form-group mt-3">
-      <label class="form-label" for="recommendation-description" [(ngModel)]="description">Descrição da recomendação</label>
+      <label class="form-label" for="recommendation-description" formControlName="description">Descrição da recomendação</label>
       <textarea type="text" class="form-control" id="recommendation-description" placeholder="Digite a descrição" ></textarea>
     </div>
     <div class="form-group mt-3">
-      <label class="form-label" for="recommendation-image-url" [(ngModel)]="imageURL">Url da imagem da recomendação</label>
+      <label class="form-label" for="recommendation-image-url" formControlName="imageURL">Url da imagem da recomendação</label>
       <input type="text" class="form-control" id="recommendation-image-url" placeholder="Digite a url"/>
     </div>
     <button type="submit" class="btn btn-primary mt-4">Enviar recomendação</button>

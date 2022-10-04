@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { RecommendationModel } from '../../models/recommendation.model';
 import { dataset } from '../../data/recommendations';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -10,12 +11,15 @@ import { dataset } from '../../data/recommendations';
 
 export class RegisterComponent implements OnInit{
   public recommendations: RecommendationModel[] = dataset;
-  public kinds: string[] = [];
 
-  public title: string = '';
-  public kind: string = '';
-  public description: string = '';
-  public imageURL: string = '';
+  public kinds: string[] = []
+
+  public form: FormGroup = new FormGroup( {
+    name: new FormControl(''),
+    imageURL: new FormControl(''),
+    category: new FormControl(''),
+    description: new FormControl(''),
+  })
 
   ngOnInit(): void {
     dataset.forEach((item) => {
