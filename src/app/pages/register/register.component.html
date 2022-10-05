@@ -5,7 +5,7 @@
       <label class="form-label" for="recommendation-kind">Escolha o tipo de recomendação</label>
       <select class="form-control text-secondary" id="recommendation-kind" formControlName="category">
         <option value="">Escolha uma opção</option>
-        <option *ngFor="let kind of kinds">{{ kind }}</option>
+        <option *ngFor="let category of categories">{{ category }}</option>
       </select>
     </div>
     <div class="form-group mt-3">
@@ -17,7 +17,7 @@
       <textarea type="text" class="form-control" id="recommendation-description" placeholder="Digite a descrição" ></textarea>
     </div>
     <div class="form-group mt-3">
-      <label class="form-label" for="recommendation-image-url" formControlName="imageURL">Url da imagem da recomendação</label>
+      <label class="form-label" for="recommendation-image-url" formControlName="image_url">Url da imagem da recomendação</label>
       <input type="text" class="form-control" id="recommendation-image-url" placeholder="Digite a url"/>
     </div>
     <button type="submit" class="btn btn-primary mt-4">Enviar recomendação</button>
