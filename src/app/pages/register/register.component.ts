@@ -13,7 +13,7 @@ import { CategoryModel } from '../../models/category.model';
 export class RegisterComponent implements OnInit{
   constructor(private httpClient: HttpClient, private router: Router) {}
 
-  public catergories: CategoryModel[] = [];
+  public categories: CategoryModel[] = [];
 
   public form: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -51,8 +51,7 @@ export class RegisterComponent implements OnInit{
       .get<CategoryModel[]>(url)
       .toPromise()
       .then((data) => {
-        console.log(data)
-        this.catergories = data;
+        this.categories = data;
       })
   }
 }
