@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RecommendationModel } from '../../models/recommendation.model';
-import { dataset } from '../../data/recommendations';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -21,11 +20,4 @@ export class RegisterComponent implements OnInit{
     description: new FormControl(''),
   })
 
-  ngOnInit(): void {
-    dataset.forEach((item) => {
-      if (!this.kinds.includes(item.kind)) {
-        this.kinds.push(item.kind);
-      }
-    });
-  }
-}
+  ngOnInit(): void {}
