@@ -1,11 +1,22 @@
-<div class="btn-group w-100 my-4" role="group">
-  <button (click)="filter('all')" class="btn btn-primary" [class.active]="currentKind == 'all'">Todos</button>
-  <button (click)="filter(kind)" class="btn btn-primary" [class.active]="currentKind == kind"
-    *ngFor="let kind of kinds">{{kind}}</button>
+<div class="d-flex align-items-center justify-content-between">
+<div>
+  <h1>Recomendações</h1>
+  <span class="text-secondary">Usuário logado: {{currentUser}} </span>
+</div>
+<a role="button" class="btn btn-secondary" [routerLink]="['register']">Adicionar Recomendação</a>
 </div>
 
-<div class="row px-3">
-  <div class="col-2" *ngFor="let item of recommendations">
-    <app-recommendation-item [recommendation]='item'></app-recommendation-item>
-  </div>
+<hr>
+
+<div class="btn-group w-100 mb-4" role="group">
+<button (click)="filter('all')" class="btn btn-outline-primary" [class.active]="currentCategory == 'all'">Todos</button>
+
+<button (click)="filter(category)" class="btn btn-outline-primary" [class.active]="currentCategory.id == category.id"
+  *ngFor="let category of categories">{{category.name}}</button>
+</div>
+
+<div class="row d-flex align-items-stretch">
+<div class="col-3 mb-4" *ngFor="let item of recommendations">
+  <app-recommendation-item [recommendation]='item'></app-recommendation-item>
+</div>
 </div>

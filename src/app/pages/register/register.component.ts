@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit{
     description: new FormControl('', [Validators.required]),
   })
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.loadCategories();
   }
 
@@ -52,6 +52,6 @@ export class RegisterComponent implements OnInit{
       .toPromise()
       .then((data) => {
         this.categories = data;
-      })
+      });
   }
 }
