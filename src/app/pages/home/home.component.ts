@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { RecommendationModel } from '../../models/recommendation.model';
 import { CategoryModel } from '../../models/category.model';
 import { AuthService } from '../../services/auth.service';
-import { dataset } from '../../data/recommendations';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -31,9 +30,9 @@ export class HomeComponent implements OnInit {
   public filter(category: CategoryModel): void {
     this.currentCategory = Number(category.id);
     if (category.id == 0) {
-      this.recommendations = dataset; //Alterar db para fetch
+      this.recommendations = this.recommendations;
     } else {
-      this.recommendations = dataset.filter((item) => item.kind == kind); //Alterar filtro
+      return
     }
   }
 
