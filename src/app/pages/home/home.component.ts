@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   public recommendations: RecommendationModel[] = [];
   public categories: CategoryModel[] = [];
-  public currentCategory: string = 'all';
+  public currentCategory: number = 0;
   public currentUser: string = this.authService.currentUser;
 
   ngOnInit(): void {
@@ -29,8 +29,8 @@ export class HomeComponent implements OnInit {
   }
 
   public filter(category: CategoryModel): void {
-    this.currentCategory = category.id;
-    if (category.name == 'all') {
+    this.currentCategory = Number(category.id);
+    if (category.id == 0) {
       this.recommendations = dataset; //Alterar db para fetch
     } else {
       this.recommendations = dataset.filter((item) => item.kind == kind); //Alterar filtro
