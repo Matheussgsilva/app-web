@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { RecommendationModel } from '../../models/recommendation.model';
 import { CategoryModel } from '../../models/category.model';
 import { AuthService } from '../../services/auth.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
