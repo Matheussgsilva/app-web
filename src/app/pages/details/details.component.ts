@@ -23,6 +23,7 @@ export class DetailsComponent implements OnInit {
   
   public ngOnInit(): void {
    this.loadDetails();
+   this.loadSimilarRecommendations();
   }
 
   private loadDetails() {
@@ -36,5 +37,24 @@ export class DetailsComponent implements OnInit {
         this.recommendation = data;
         this.loading = false;
       })
+  };
+
+  private loadSimilarRecommendations() {
+   {/*const url = `${environment.apiUrl}/recommendations?category=${this.recommendation.category.id}`;
+
+    this.httpClient
+      .get<RecommendationModel[]>(url)
+      .toPromise()
+      .then((data) => {
+        this.similarRecommendation = data;
+      });*/}
+  }
+
+  public showEdit() {
+
+  };
+
+  public destroy() {
+
   };
 }

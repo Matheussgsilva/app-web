@@ -1,5 +1,17 @@
-<strong class="d-block" *ngIf="loading">Carregando...</strong>
+<div class="d-flex justify-content-center" *ngIf="loading">
+  <div
+    class="spinner-border text-primary m-5"
+    role="status"
+  ></div>
+</div>
 <div class="mt-2" *ngIf="!loading && recommendation">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <a [routerLink]="['']" class="text-muted">Voltar</a>
+    <div>
+      <a role="button" class="btn btn-warning text-white me-3" (click)="showEdit()">Alterar</a>
+      <a role="button" class="btn btn-danger" (click)="destroy()">Apagar</a>
+    </div>
+  </div>
   <div
     style="background-image: url({{recommendation.image_url}}); background-repeat: no-repeat; background-size: cover; background-position: center center; height: 400px"
   >
