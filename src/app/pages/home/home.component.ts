@@ -17,26 +17,23 @@ export class HomeComponent implements OnInit {
     private httpClient: HttpClient
   ) {}
 
-  public recommendations: RecommendationModel[] = [];
-  public categories: CategoryModel[] = [];
+  public readonly ALL_RECOMMENDATIONS: number = 0;
+  public recommendations?: RecommendationModel[] = [];
+  public categories?: CategoryModel[] = [];
   public currentCategory: number = 0;
   public currentUser: string = this.authService.currentUser;
 
   ngOnInit(): void {
     this.loadCategories();
-    this.loadRecommendations();
+    this.loadRecommendations(this.ALL_RECOMMENDATIONS);
   }
 
-  public filter(category: CategoryModel): void {
-    this.currentCategory = Number(category.id);
-    if (category.id == 0) {
-      this.recommendations = this.recommendations;
-    } else {
-      return
-    }
+  public filter(categoryId: number): void {
+    this.currentCategory = categoryId;
+    this.loadRecommendations(categoryId)
   }
 
-  private loadRecommendations(): void {
+  private loadRecommendations(categoyId: number): void {
     const url = 'https://jp-recommendations-api.herokuapp.com/recommendations';
     this.httpClient
       .get<RecommendationModel[]>(url)

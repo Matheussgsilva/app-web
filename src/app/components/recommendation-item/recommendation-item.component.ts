@@ -10,7 +10,7 @@ export class RecommendationItemComponent {
   @Input() recommendation!: RecommendationModel;
 
   public badgeColor(): string {
-    switch (this.recommendation.kind) {
+    switch (this.recommendation.category.name) {
       case 'Filme':
           return "primary";
       case 'Série':

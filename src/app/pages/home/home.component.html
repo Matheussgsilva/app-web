@@ -9,9 +9,9 @@
 <hr>
 
 <div class="btn-group w-100 mb-4" role="group">
-<button (click)="filter(0)" class="btn btn-outline-primary" [class.active]="currentCategory == 0">Todos</button>
+<button (click)="filter(ALL_RECOMMENDATIONS)" class="btn btn-outline-primary" [class.active]="currentCategory == ALL_RECOMMENDATIONS">Todos</button>
 
-<button (click)="filter(category)" class="btn btn-outline-primary" [class.active]="currentCategory.id == category.id"
+<button (click)="filter(category.id)" class="btn btn-outline-primary" [class.active]="currentCategory == category.id"
   *ngFor="let category of categories">{{category.name}}</button>
 </div>
 
