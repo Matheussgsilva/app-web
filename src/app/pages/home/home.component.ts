@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { RecommendationModel } from '../../models/recommendation.model';
 import { CategoryModel } from '../../models/category.model';
@@ -39,14 +39,15 @@ export class HomeComponent implements OnInit {
   private loadRecommendations(categoryId: number): void {
     const url = `${environment.apiUrl}/recommendations`;
 
-    let params: object = {};
+    let params = {};
     if (categoryId != this.ALL_RECOMMENDATIONS) {
       params = { category: categoryId };
     }
 
     this.loading = true;
     this.httpClient
-      .get<RecommendationModel[]>(url, { params })
+      .get<RecommendationModel[]>(url, { 
+        params: new HttpParams({ fromObject: params }) })
       .toPromise()
       .then((data) => {
         this.recommendations = data;
