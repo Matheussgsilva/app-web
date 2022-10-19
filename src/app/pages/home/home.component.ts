@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
     this.loadRecommendations(categoryId)
   }
 
-  private loadRecommendations(categoyId: number): void {
+  private loadRecommendations(categoryId: number): void {
     const url = `${environment.apiUrl}/recommendations`;
 
     let params: object = {};
