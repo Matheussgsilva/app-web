@@ -1,22 +1,42 @@
 <div class="d-flex align-items-center justify-content-between">
-<div>
-  <h1>Recomendações</h1>
-  <span class="text-secondary">Usuário logado: {{currentUser}} </span>
-</div>
-<a role="button" class="btn btn-secondary" [routerLink]="['register']">Adicionar Recomendação</a>
-</div>
-
-<hr>
-
-<div class="btn-group w-100 mb-4" role="group">
-<button (click)="filter(ALL_RECOMMENDATIONS)" class="btn btn-outline-primary" [class.active]="currentCategory == ALL_RECOMMENDATIONS">Todos</button>
-
-<button (click)="filter(category.id)" class="btn btn-outline-primary" [class.active]="currentCategory == category.id"
-  *ngFor="let category of categories">{{category.name}}</button>
+  <div>
+    <h1>Recomendações</h1>
+    <span class="text-secondary">Usuário logado: {{ currentUser }} </span>
+  </div>
+  <a role="button" class="btn btn-primary" [routerLink]="['register']"
+    >Adicionar Recomendação</a
+  >
 </div>
 
-<div class="row d-flex align-items-stretch">
-<div class="col-3 mb-4" *ngFor="let item of recommendations">
-  <app-recommendation-item [recommendation]='item'></app-recommendation-item>
+<div *ngIf="loading" class="spinner-border text-primary" role="status">
+  <span class="sr-only">Loading...</span>
 </div>
+
+<div *ngIf="!loading">
+  <div class="btn-group w-100 mb-4" role="group">
+    <button
+      (click)="filter(ALL_RECOMMENDATIONS)"
+      class="btn btn-outline-primary"
+      [class.active]="currentCategory == ALL_RECOMMENDATIONS"
+    >
+      Todos
+    </button>
+
+    <button
+      (click)="filter(category.id)"
+      class="btn btn-outline-primary"
+      [class.active]="currentCategory == category.id"
+      *ngFor="let category of categories"
+    >
+      {{ category.name }}
+    </button>
+  </div>
+
+  <div class="row d-flex align-items-stretch">
+    <div class="col-3 mb-4" *ngFor="let item of recommendations">
+      <app-recommendation-item
+        [recommendation]="item"
+      ></app-recommendation-item>
+    </div>
+  </div>
 </div>
