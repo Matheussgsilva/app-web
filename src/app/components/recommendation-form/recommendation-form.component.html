@@ -1,0 +1,22 @@
+<form [formGroup]="form">
+  <div class="form-group mt-3 ">
+    <label class="form-label" for="recommendation-kind">Escolha o tipo de recomendação</label>
+    <select class="form-control text-secondary" id="recommendation-kind" formControlName="category">
+      <option value="">Escolha uma opção</option>
+      <option *ngFor="let category of categories">{{ category }}</option>
+    </select>
+  </div>
+  <div class="form-group mt-3">
+    <label class="form-label" for="recommendation-title" formControlName="name">Título da recomendação</label>
+    <input type="text" class="form-control" id="recommendation-title" placeholder="Digite o título"/>
+  </div>
+  <div class="form-group mt-3">
+    <label class="form-label" for="recommendation-description" formControlName="description">Descrição da recomendação</label>
+    <textarea type="text" class="form-control" id="recommendation-description" placeholder="Digite a descrição" ></textarea>
+  </div>
+  <div class="form-group mt-3">
+    <label class="form-label" for="recommendation-image-url" formControlName="image_url">Url da imagem da recomendação</label>
+    <input type="text" class="form-control" id="recommendation-image-url" placeholder="Digite a url"/>
+  </div>
+  <button type="submit" class="btn btn-primary mt-4">Enviar recomendação</button>
+</form>
