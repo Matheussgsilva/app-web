@@ -1,29 +1,63 @@
 <div class="card border-0">
   <h2 class="card-header py-4 bg-white">
-  {{isNew ? 'Nova' : 'Alterar'}} recomendação
+    {{ isNew ? 'Nova' : 'Alterar' }} recomendação
   </h2>
   <div class="card-body p-4">
-<form [formGroup]="form">
-  <div class="form-group mt-3 ">
-    <label class="form-label" for="recommendation-category">Escolha o tipo de recomendação</label>
-    <select class="form-control text-secondary" id="recommendation-category" formControlName="category_id">
-      <option value="">Escolha uma opção</option>
-      <option *ngFor="let category of categories" value="{{category.id}}">{{ category.name }}</option>
-    </select>
-  </div>
-  <div class="form-group mt-3">
-    <label class="form-label" for="recommendation-name" >Título da recomendação</label>
-    <input formControlName="name" type="text" class="form-control" id="recommendation-name" placeholder="Digite o título"/>
-  </div>
-  <div class="form-group mt-3">
-    <label class="form-label" for="recommendation-description">Descrição da recomendação</label>
-    <textarea formControlName="description" type="text" class="form-control" id="recommendation-description" placeholder="Digite a descrição" ></textarea>
-  </div>
-  <div class="form-group mt-3">
-    <label class="form-label" for="recommendation-image-url">Url da imagem da recomendação</label>
-    <input formControlName="image_url" type="text" class="form-control" id="recommendation-image-url" placeholder="Digite a url"/>
-  </div>
-  <button (click)="save()" class="btn btn-primary mt-4">{{isNew? 'Salvar' : 'Atualizar'}}</button>
-</form>
+    <form [formGroup]="form">
+      <div class="form-group mt-3">
+        <label class="form-label" for="recommendation-category"
+          >Escolha o tipo de recomendação</label
+        >
+        <select
+          class="form-control text-secondary"
+          id="recommendation-category"
+          formControlName="category_id"
+        >
+          <option value="">Escolha uma opção</option>
+          <option *ngFor="let category of categories" value="{{ category.id }}">
+            {{ category.name }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group mt-3">
+        <label class="form-label" for="recommendation-name"
+          >Título da recomendação</label
+        >
+        <input
+          formControlName="name"
+          type="text"
+          class="form-control"
+          id="recommendation-name"
+          placeholder="Digite o título"
+        />
+      </div>
+      <div class="form-group mt-3">
+        <label class="form-label" for="recommendation-description"
+          >Descrição da recomendação</label
+        >
+        <textarea
+          formControlName="description"
+          type="text"
+          class="form-control"
+          id="recommendation-description"
+          placeholder="Digite a descrição"
+        ></textarea>
+      </div>
+      <div class="form-group mt-3">
+        <label class="form-label" for="recommendation-image-url"
+          >Url da imagem da recomendação</label
+        >
+        <input
+          formControlName="image_url"
+          type="text"
+          class="form-control"
+          id="recommendation-image-url"
+          placeholder="Digite a url"
+        />
+      </div>
+      <button (click)="save()" class="btn btn-primary mt-4">
+        {{ isNew ? 'Salvar' : 'Atualizar' }}
+      </button>
+    </form>
   </div>
 </div>

@@ -6,11 +6,12 @@
           <div class="mb-md-5 mt-md-4 pb-5">
             <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
             <p class="text-white-50 mb-5">Digite seu nome e e-mail!</p>
+            <form [formGroup]="form">
             <div class="form-outline form-white mb-4">
               <label class="form-label">Nome</label>
               <input
+                formControlName="name"
                 type="text"
-                [(ngModel)]="name"
                 class="form-control form-control-lg"
                 placeholder="Digite seu nome"
               />
@@ -19,12 +20,13 @@
             <div class="form-outline form-white mb-4">
               <label class="form-label">Email</label>
               <input
+                formControlName="email"
                 type="email"
-                [(ngModel)]="email"
                 class="form-control form-control-lg"
                 placeholder="Digite seu e-mail"
               />
             </div>
+          </form>
 
             <button
               (click)="login()"
