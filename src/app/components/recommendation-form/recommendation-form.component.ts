@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { CategoryModel } from '../../models/category.model';
+import { RecommendationModel } from '../../models/recommendation.model';
+
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-recommendation-form',
@@ -11,6 +14,8 @@ import { CategoryModel } from '../../models/category.model';
   styleUrls: ['./recommendation-form.component.css']
 })
 export class RecommendationFormComponent implements OnInit {
+  @Input() recommendation?: RecommendationModel;
+
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   public categories?: CategoryModel[] = [];
@@ -27,7 +32,7 @@ export class RecommendationFormComponent implements OnInit {
   }
 
   public save(): void {
-    const url = 'https://jp-recommendations-api.herokuapp.com/recommendations';
+    const url = `${environment.apiUrl}/recommendations`;
 
     if (this.form.valid) {
       this.httpClient
@@ -45,7 +50,7 @@ export class RecommendationFormComponent implements OnInit {
   }
 
   private loadCategories(): void {
-    const url = 'https://jp-recommendations-api.herokuapp.com/categories';
+    const url = `${environment.apiUrl}/categories`;
 
     this.httpClient
       .get<CategoryModel[]>(url)
