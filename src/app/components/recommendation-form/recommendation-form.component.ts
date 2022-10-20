@@ -19,6 +19,8 @@ export class RecommendationFormComponent implements OnInit {
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   public categories?: CategoryModel[] = [];
+  public isNew: boolean = true;
+  public id: number = 0;
 
   public form: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -29,6 +31,21 @@ export class RecommendationFormComponent implements OnInit {
 
   public ngOnInit(): void {
     this.loadCategories();
+    if (this.recommendation) {
+      this.id = this.recommendation.id;
+      this.isNew = false;
+      this.form = new FormGroup({
+        name: new FormControl(this.recommendation?.name, [Validators.required]),
+        image_url: new FormControl(this.recommendation?.image_url),
+        category_id: new FormControl(this.recommendation?.category.id, [
+          Validators.required,
+        ]),
+        description: new FormControl(this.recommendation?.description, [
+          Validators.required,
+        ]),
+      });
+    }
+    console.log(this.recommendation)
   }
 
   public save(): void {
