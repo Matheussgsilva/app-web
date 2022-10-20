@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -22,6 +22,9 @@ export class DetailsComponent implements OnInit {
   public loading: boolean = true;
   public recommendation?: RecommendationModel;
   public similarRecommendation?: RecommendationModel[];
+
+  @ViewChild('editForm')
+  public dialog?: ElementRef<HTMLDialogElement>;
   
   public ngOnInit(): void {
    this.loadDetails();
@@ -64,10 +67,6 @@ export class DetailsComponent implements OnInit {
   }
 
   public showEdit() {
-
-  };
-
-  public destroy() {
-
+    this.dialog?.nativeElement.showModal();
   };
 }
