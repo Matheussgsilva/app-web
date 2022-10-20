@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { RecommendationModel } from './../../models/recommendation.model';
 
@@ -14,6 +15,7 @@ export class DetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private httpClient: HttpClient,
+    private router: Router
     ) {}
 
   public id: number = this.route.snapshot.params.id;
@@ -36,6 +38,17 @@ export class DetailsComponent implements OnInit {
       .then((data) => {
         this.recommendation = data;
         this.loading = false;
+      })
+  };
+
+  public deleteRecommendation() {
+    const url = `${environment.apiUrl}/recommendations/${this.id}`;
+
+    this.httpClient
+      .delete<RecommendationModel>(url)
+      .toPromise()
+      .then((_) => {
+        this.router.navigateByUrl('');
       })
   };
 
