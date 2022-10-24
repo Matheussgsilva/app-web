@@ -1,9 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { RecommendationModel } from './../../models/recommendation.model';
+
+import { ApiService } from '../../services/api.service'; 
 
 import { environment } from '../../../environments/environment';
 
@@ -14,14 +15,15 @@ import { environment } from '../../../environments/environment';
 export class DetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private httpClient: HttpClient,
+    private apiService: ApiService,
     private router: Router
     ) {}
 
   public id: number = this.route.snapshot.params.id;
   public loading: boolean = true;
-  public recommendation?: RecommendationModel;
+  public recommendation!: RecommendationModel;
   public similarRecommendation?: RecommendationModel[];
+  public url: string = `recommendations/${this.id}`;
 
   @ViewChild('editForm')
   public dialog?: ElementRef<HTMLDialogElement>;
@@ -32,12 +34,10 @@ export class DetailsComponent implements OnInit {
   }
 
   private loadDetails() {
-    const url = `${environment.apiUrl}/recommendations/${this.id}`;
-
     this.loading = true;
-    this.httpClient
-      .get<RecommendationModel>(url)
-      .toPromise()
+
+    this.apiService
+      .get<RecommendationModel>(this.url)
       .then((data) => {
         this.recommendation = data;
         this.loading = false;
@@ -45,11 +45,10 @@ export class DetailsComponent implements OnInit {
   };
 
   public deleteRecommendation() {
-    const url = `${environment.apiUrl}/recommendations/${this.id}`;
+    this.loading = true;
 
-    this.httpClient
-      .delete<RecommendationModel>(url)
-      .toPromise()
+    this.apiService
+      .delete<RecommendationModel>(this.url)
       .then((_) => {
         this.router.navigateByUrl('');
       })
