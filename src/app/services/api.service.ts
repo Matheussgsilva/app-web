@@ -11,7 +11,7 @@ export class ApiService {
 
   constructor(
     private httpClient: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
   ) { }
 
   public get<T>(path: string, params: object = {}): Promise<T> {
@@ -41,16 +41,16 @@ export class ApiService {
   private getOptions(params: object): object {
     const headers: object = {
       'Content-Type': 'application/json',
-      Authorization: '',
+      'Authorization': '',
+    };
+
+    if (this.authService.isLoggedIn()) {
+      headers['Authorization'] = this.authService.currentUser.api_token;
+    }
+    
+    return {
+      headers,
+      params,
     }
   };
-
-  if(this.authService.isLoggedIn()) {
-    headers['Authorization'] = this.authService.currentUser.api_token;
-  }
-
-  return {
-    headers,
-    params,
-  }
 }
