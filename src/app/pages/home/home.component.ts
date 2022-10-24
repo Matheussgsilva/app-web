@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
 
 import { RecommendationModel } from '../../models/recommendation.model';
 import { CategoryModel } from '../../models/category.model';
@@ -7,17 +7,17 @@ import { AuthService } from '../../services/auth.service';
 
 import { environment } from '../../../environments/environment';
 import { UserModel } from '../../models/user.model';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-
 export class HomeComponent implements OnInit {
   constructor(
     private authService: AuthService,
-    private httpClient: HttpClient
+    private apiService: ApiService
   ) {}
 
   public readonly ALL_RECOMMENDATIONS: number = 0;
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCategories();
-    this.loadRecommendations(this.ALL_RECOMMENDATIONS);
+    this.loadRecommendations(this.currentCategory);
   }
 
   public filter(categoryId: number): void {
@@ -38,18 +38,16 @@ export class HomeComponent implements OnInit {
   }
 
   private loadRecommendations(categoryId: number): void {
-    const url = `${environment.apiUrl}/recommendations`;
+    this.loading = true;
 
     let params = {};
     if (categoryId != this.ALL_RECOMMENDATIONS) {
       params = { category: categoryId };
     }
 
-    this.loading = true;
-    this.httpClient
-      .get<RecommendationModel[]>(url, { 
+    this.apiService
+      .get<RecommendationModel[]>('recommendations', { 
         params: new HttpParams({ fromObject: params }) })
-      .toPromise()
       .then((data) => {
         this.recommendations = data;
         this.loading = false;
@@ -57,10 +55,8 @@ export class HomeComponent implements OnInit {
   }
 
   private loadCategories(): void {
-    const url = `${environment.apiUrl}/categories`;
-    this.httpClient
-      .get<CategoryModel[]>(url)
-      .toPromise()
+    this.apiService
+      .get<CategoryModel[]>('categories')
       .then((data) => {
         this.categories = data;
       });
