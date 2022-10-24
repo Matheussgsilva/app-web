@@ -8,22 +8,22 @@
             <p class="text-white-50 mb-5">Digite seu nome e e-mail!</p>
             <form [formGroup]="form">
             <div class="form-outline form-white mb-4">
-              <label class="form-label">Nome</label>
+              <label class="form-label">E-mail</label>
               <input
-                formControlName="name"
+                formControlName="email"
                 type="text"
                 class="form-control form-control-lg"
-                placeholder="Digite seu nome"
+                placeholder="Digite seu e-mail"
               />
             </div>
 
             <div class="form-outline form-white mb-4">
-              <label class="form-label">Email</label>
+              <label class="form-label">Senha</label>
               <input
-                formControlName="email"
-                type="email"
+                formControlName="password"
+                type="password"
                 class="form-control form-control-lg"
-                placeholder="Digite seu e-mail"
+                placeholder="Digite sua senha"
               />
             </div>
           </form>
