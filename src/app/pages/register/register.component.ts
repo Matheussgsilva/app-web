@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Router } from '@angular/router';
 
@@ -7,48 +7,10 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html'
 })
 
-export class RegisterComponent implements OnInit{
-  constructor(private httpClient: HttpClient, private router: Router) {}
+export class RegisterComponent {
+  constructor(private router: Router) {}
 
-  public categories?: CategoryModel[] = [];
-
-  public form: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    image_url: new FormControl(''),
-    category_id: new FormControl('', [Validators.required]),
-    description: new FormControl('', [Validators.required]),
-  })
-
-  public ngOnInit(): void {
-    this.loadCategories();
-  }
-
-  public save(): void {
-    const url = 'https://jp-recommendations-api.herokuapp.com/recommendations';
-
-    if (this.form.valid) {
-      this.httpClient
-        .post(url, this.form.value)
-        .toPromise()
-        .then((_) => {
-          this.router.navigateByUrl('');
-        })
-        .catch((resp) => {
-          alert(resp.error.error);
-        });
-    } else {
-      alert('Favor preencher o formulário corretamente')
-    }
-  }
-
-  private loadCategories(): void {
-    const url = 'https://jp-recommendations-api.herokuapp.com/categories';
-
-    this.httpClient
-      .get<CategoryModel[]>(url)
-      .toPromise()
-      .then((data) => {
-        this.categories = data;
-      });
+  public redirectToHome(categoryId: number): void {
+    this.router.navigate(['', { queryParams: { categoryId } }]);
   }
 }
