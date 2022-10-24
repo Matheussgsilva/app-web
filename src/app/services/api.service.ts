@@ -47,7 +47,7 @@ export class ApiService {
     if (this.authService.isLoggedIn()) {
       headers['Authorization'] = this.authService.currentUser.api_token;
     }
-    
+
     return {
       headers,
       params,

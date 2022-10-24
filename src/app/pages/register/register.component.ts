@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
-import { CategoryModel } from '../../models/category.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',

@@ -5,7 +5,6 @@ import { RecommendationModel } from '../../models/recommendation.model';
 import { CategoryModel } from '../../models/category.model';
 import { AuthService } from '../../services/auth.service';
 
-import { environment } from '../../../environments/environment';
 import { UserModel } from '../../models/user.model';
 import { ApiService } from '../../services/api.service';
 

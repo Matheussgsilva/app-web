@@ -6,8 +6,6 @@ import { RecommendationModel } from './../../models/recommendation.model';
 
 import { ApiService } from '../../services/api.service'; 
 
-import { environment } from '../../../environments/environment';
-
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
