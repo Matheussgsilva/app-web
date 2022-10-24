@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient} from '@angular/common/http';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
-import { AuthService } from '../../services/auth.service'
+import { AuthService } from '../../services/auth.service';
+
+import { UserModel } from '../../models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +26,7 @@ export class LoginComponent {
 
     if (this.form.valid) {
       this.httpClient
-        .post(url, this.form.value)
+        .post<UserModel>(url, this.form.value)
         .toPromise()
         .then((_) => {
           this.router.navigateByUrl('');
