@@ -6,6 +6,7 @@ import { CategoryModel } from '../../models/category.model';
 import { AuthService } from '../../services/auth.service';
 
 import { environment } from '../../../environments/environment';
+import { UserModel } from '../../models/user.model';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit {
   public recommendations?: RecommendationModel[] = [];
   public categories?: CategoryModel[] = [];
   public currentCategory: number = this.ALL_RECOMMENDATIONS;
-  public currentUser: string = this.authService.currentUser;
+  public currentUser: UserModel = this.authService.currentUser;
   public loading: boolean = true;
 
   ngOnInit(): void {
