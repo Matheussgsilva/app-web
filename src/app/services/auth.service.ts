@@ -1,28 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { UserModel } from '../models/user.model'
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
   constructor(private router: Router){}
 
   public isLoggedIn(): boolean {
-    return !!localStorage.email;
+    return !!localStorage.user;
   }
 
-  public get currentUser(): string {
-    return localStorage.email;
+  public get currentUser(): UserModel {
+    return JSON.parse(localStorage.user);
   }
 
-  public get currentUserName(): string {
-    return localStorage.name;
-  }
-
-  public login(email: string, name: string): void {
-    localStorage.setItem('email', email)
-    localStorage.setItem('name', name)
+  public login(user: UserModel): void {
+    localStorage.setItem('user', JSON.stringify(user));
     this.router.navigateByUrl('')
   }
 
