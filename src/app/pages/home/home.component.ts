@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
     }
 
     this.apiService
-      .get<RecommendationModel[]>('recommendations', params )
+      .get<RecommendationModel[]>('recommendations')
       .then((data) => {
         this.recommendations = data;
         this.loading = false;
