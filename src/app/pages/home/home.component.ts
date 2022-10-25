@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   private loadRecommendations(categoryId: number): void {
     this.loading = true;
-console.log(categoryId)
+
     this.apiService
       .get<RecommendationModel[]>(`/recommendations/${categoryId == this.ALL_RECOMMENDATIONS ? '' : categoryId}`)
       .then((data) => {

@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { UserModel } from '../models/user.model'
+import { UserModel } from '../models/user.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router){}
+  constructor(private router: Router) {}
 
   public isLoggedIn(): boolean {
     return !!localStorage.user;
@@ -19,12 +18,11 @@ export class AuthService {
 
   public login(user: UserModel): void {
     localStorage.setItem('user', JSON.stringify(user));
-    this.router.navigateByUrl('')
+    this.router.navigateByUrl('');
   }
 
   public logout(): void {
-    localStorage.clear()
-    this.router.navigateByUrl('login')
+    localStorage.clear();
+    this.router.navigateByUrl('login');
   }
-
 }
